@@ -20,7 +20,7 @@ st.set_page_config(page_title="Ethiopia FI Dashboard", page_icon="📊", layout=
 @st.cache_data
 def load_data():
     """Load all data"""
-    df = pd.read_csv('data/raw/ethiopia_fi_unified_data.csv')
+    df = pd.read_csv('../data/raw/ethiopia_fi_unified_data.csv')
     
     # Extract indicators
     indicators = df[df['record_type'] == 'observation'].copy()
@@ -32,7 +32,7 @@ def load_data():
     
     # Load forecast if exists
     try:
-        forecast = pd.read_csv('data/processed/account_ownership_forecast.csv')
+        forecast = pd.read_csv('../data/processed/account_ownership_forecast.csv')
     except:
         # Default forecast
         forecast = pd.DataFrame({
